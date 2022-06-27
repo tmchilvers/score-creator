@@ -1,0 +1,48 @@
+[
+    {
+        "bpm": 100,
+        "songId": 0,
+        "songName": "Blues 101",
+        "instruments": [
+            "piano",
+            "guitar",
+            "drums"
+        ],
+        "stems": [
+            {
+                "stemId": 0,
+                "stemName": "Piano",
+                "sections": [
+                    {
+                        "stemId": 0,
+                        "IPFS_CID": "QmZtZ3beBPPw7nxEr3yyh1V5jEdWJqDoCCVG1aVMHfrwkk",
+                        "sectionId": 0,
+                        "sectionName": "Piano Intro"
+                    }
+                ]
+            },
+            {
+                "stemId": 1,
+                "stemName": "Guitar",
+                "sections": [
+                    {
+                        "stemId": 1,
+                        "IPFS_CID": "Qme16FgBb1qwYe1pAL21avWxnAaaT1xCwb73qWgJp7RuFZ",
+                        "sectionId": 1,
+                        "sectionName": "Guitar Intro"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "bpm": 60,
+        "songId": 1,
+        "songName": "Sad Cinematic",
+        "instruments": [
+            "piano",
+            "strings"
+        ],
+        "stems": []
+    }
+]
