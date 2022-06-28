@@ -1,9 +1,12 @@
 //  =====================================================================================
 //  PROJECT INTERFACE
+export type Slides = "begin" | "selectSong";
+
 export interface IProject {
   projectId: number;
   projectName: string;
   currSong: ISong;
+  currSlide: Slides;
 }
 
 //  =====================================================================================

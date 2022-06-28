@@ -1,8 +1,8 @@
 import { CircularProgress } from "@mui/material";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { ISection, ISong } from "../redux/store/interfaces";
 
-const MusicPlayer = (song: ISong) => {
+const MusicPlayer = ({ song }: { song: ISong }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   if (!audioRef || !song) {
