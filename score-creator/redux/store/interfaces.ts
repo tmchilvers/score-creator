@@ -44,3 +44,10 @@ export interface ISection {
   sectionName: string;
   IPFS_CID: string;
 }
+
+//  =====================================================================================
+//  SONG INTERFACES
+export interface IAnimation {
+  openPage: boolean;
+  closePage: boolean;
+}

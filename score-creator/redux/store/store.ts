@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import animationSlice from "./slices/animationSlice";
 import projectSlice from "./slices/projectSlice";
 
 /**
@@ -8,6 +9,7 @@ import projectSlice from "./slices/projectSlice";
 export const store = configureStore({
   reducer: {
     project: projectSlice,
+    animation: animationSlice,
   },
 });
 

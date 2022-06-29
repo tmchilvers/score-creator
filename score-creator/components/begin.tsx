@@ -1,27 +1,42 @@
 import styled from "@emotion/styled";
-import { Button } from "@mui/material";
+import { useState } from "react";
 import { Slides } from "../redux/store/interfaces";
+import {
+  setClosePage,
+  setOpenPage,
+} from "../redux/store/slices/animationSlice";
 import { setSlide } from "../redux/store/slices/projectSlice";
-import { useAppDispatch } from "../redux/store/store";
+import { useAppDispatch, useAppSelector } from "../redux/store/store";
 import BounceWord from "./bounceWord";
 import FadeWord from "./fadeWord";
+import { StyledButton } from "./styles";
+import { useEffect } from "react";
 
 const Begin = () => {
+  const animOpenPage = useAppSelector((state) => state.animation.openPage);
+  const animClosePage = useAppSelector((state) => state.animation.closePage);
   const dispatch = useAppDispatch();
 
   const changeSlide = (slide: Slides) => {
-    dispatch(setSlide(slide));
+    if (animOpenPage || animClosePage) return;
+    dispatch(setClosePage(true));
+
+    setTimeout(() => {
+      dispatch(setClosePage(false));
+      dispatch(setOpenPage(true));
+      dispatch(setSlide(slide));
+    }, 1000);
   };
 
   return (
-    <StyledBegin data-cy="load-song">
+    <StyledBegin data-cy="begin">
       <span>
-        A fun, little tool to help you{"  "}
+        A fun, and easy tool to help you{"  "}
         <BounceWord word={"explore"} /> my music!
       </span>
       <StyledBeginWrapper data-cy="begin-wrapper">
         <p>
-          Click below to get started <FadeWord word={". . ."} />
+          <FadeWord word={"click below to begin . . ."} />
         </p>
         <StyledButton onClick={() => changeSlide("selectSong")}>
           Pick a song
@@ -36,7 +51,7 @@ export default Begin;
 //  --------------------------------------------------------------------------------
 //  SELECT SONG
 const StyledBegin = styled.div`
-  padding: 3%;
+  padding: 0 3%;
   width: 100%;
   height: 100%;
   display: grid;
@@ -51,16 +66,4 @@ const StyledBeginWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-//  --------------------------------------------------------------------------------
-//  BEGIN BUTTON
-export const StyledButton = styled(Button)`
-  border: 0.1vw solid white;
-  color: white;
-  font-size: 0.7vw;
-
-  &:hover {
-    background-color: #ffffff5e;
-  }
 `;

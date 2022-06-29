@@ -28,14 +28,14 @@ const StyledFadeWord = styled.span<{ loop: boolean }>`
     position: relative;
     font-weight: bold;
     color: white;
-    opacity: 0;
+    opacity: 0.5;
     animation: fade-text 3s forwards;
     animation-iteration-count: infinite;
   }
 
   @keyframes fade-text {
     0% {
-      opacity: 0;
+      opacity: 0.5;
     }
 
     50% {
@@ -43,7 +43,7 @@ const StyledFadeWord = styled.span<{ loop: boolean }>`
     }
 
     100% {
-      opacity: 0;
+      opacity: 0.5;
     }
   }
 `;
