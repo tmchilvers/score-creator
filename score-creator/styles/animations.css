@@ -1,6 +1,6 @@
 .fadeIn {
   opacity: 0;
-  animation: fadeIn 1s linear;
+  animation: fadeIn 0.8s linear;
   -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
   -moz-animation-fill-mode: forwards; /* FF 5+ */
   -o-animation-fill-mode: forwards; /* Not implemented yet */
@@ -10,7 +10,7 @@
 
 .fadeOut {
   opacity: 1;
-  animation: fadeOut 1s linear;
+  animation: fadeOut 0.8s linear;
   -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
   -moz-animation-fill-mode: forwards; /* FF 5+ */
   -o-animation-fill-mode: forwards; /* Not implemented yet */
@@ -37,5 +37,16 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+  }
+
+  100% {
+    opacity: 0;
+    width: 120%;
+    height: 185%;
   }
 }

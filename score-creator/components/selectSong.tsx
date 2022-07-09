@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { CircularProgress } from "@mui/material";
+import { CHANGE_PAGE_DELAY } from "../data/constants";
 import { getSongNamesAndIds } from "../data/utils";
 import { Slides } from "../redux/store/interfaces";
 import {
@@ -8,7 +9,7 @@ import {
 } from "../redux/store/slices/animationSlice";
 import { setSlide, setSong } from "../redux/store/slices/projectSlice";
 import { useAppDispatch, useAppSelector } from "../redux/store/store";
-import { StyledButton } from "./styles";
+import { StyledButton } from "../styles/styles";
 
 const SelectSong = () => {
   const currSong = useAppSelector((state) => state.project.currSong);
@@ -28,7 +29,7 @@ const SelectSong = () => {
       dispatch(setClosePage(false));
       dispatch(setOpenPage(true));
       dispatch(setSlide(slide));
-    }, 1000);
+    }, CHANGE_PAGE_DELAY);
   };
 
   //  stop if the song is not loaded
@@ -74,7 +75,6 @@ const StyledButtonGroup = styled.div`
     background-color: white;
     height: 3vw;
     width: 10vw;
-    border-radius: 15px;
   }
 `;
 

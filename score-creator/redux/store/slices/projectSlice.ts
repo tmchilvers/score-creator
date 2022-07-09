@@ -1,12 +1,12 @@
 import { createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
-import { songData } from "../../../data/constants";
+import { SONG_DATA } from "../../../data/constants";
 import { IProject, Slides } from "../interfaces";
 
 //  Create an initial state for the Project
 const initialState: IProject = {
   projectId: 1,
   projectName: "My First Project",
-  currSong: songData[0],
+  currSong: SONG_DATA[0],
   currSlide: "begin",
 };
 
@@ -19,7 +19,7 @@ export const projectSlice = createSlice({
       state: Draft<typeof initialState>,
       action: PayloadAction<number>
     ) => {
-      state.currSong = songData[action.payload];
+      state.currSong = SONG_DATA[action.payload];
     },
 
     setSlide: (

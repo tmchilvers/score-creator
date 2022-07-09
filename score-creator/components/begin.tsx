@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { CHANGE_PAGE_DELAY, START_PAGE_CHANGE_DELAY } from "../data/constants";
 import { Slides } from "../redux/store/interfaces";
 import {
   setClosePage,
@@ -7,10 +7,9 @@ import {
 } from "../redux/store/slices/animationSlice";
 import { setSlide } from "../redux/store/slices/projectSlice";
 import { useAppDispatch, useAppSelector } from "../redux/store/store";
-import BounceWord from "./bounceWord";
-import FadeWord from "./fadeWord";
-import { StyledButton } from "./styles";
-import { useEffect } from "react";
+import BounceWord from "./animations/bounceWord";
+import FadeWord from "./animations/fadeWord";
+import MusicButton from "./animations/musicButton";
 
 const Begin = () => {
   const animOpenPage = useAppSelector((state) => state.animation.openPage);
@@ -19,13 +18,15 @@ const Begin = () => {
 
   const changeSlide = (slide: Slides) => {
     if (animOpenPage || animClosePage) return;
-    dispatch(setClosePage(true));
-
     setTimeout(() => {
-      dispatch(setClosePage(false));
-      dispatch(setOpenPage(true));
-      dispatch(setSlide(slide));
-    }, 1000);
+      dispatch(setClosePage(true));
+
+      setTimeout(() => {
+        dispatch(setClosePage(false));
+        dispatch(setOpenPage(true));
+        dispatch(setSlide(slide));
+      }, CHANGE_PAGE_DELAY);
+    }, START_PAGE_CHANGE_DELAY);
   };
 
   return (
@@ -38,9 +39,11 @@ const Begin = () => {
         <p>
           <FadeWord word={"click below to begin . . ."} />
         </p>
-        <StyledButton onClick={() => changeSlide("selectSong")}>
-          Pick a song
-        </StyledButton>
+        <MusicButton
+          text={"Pick a Song"}
+          clickFunc={changeSlide}
+          slide="selectSong"
+        />
       </StyledBeginWrapper>
     </StyledBegin>
   );

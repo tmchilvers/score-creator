@@ -1,5 +1,4 @@
 import { createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
-import { songData } from "../../../data/constants";
 import { IAnimation } from "../interfaces";
 
 //  Create an initial state for the Project

@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Begin from "../components/begin";
+import MusicWaveAnim from "../components/animations/musicWaveAnim";
 import SelectSong from "../components/selectSong";
+import { CHANGE_PAGE_DELAY, START_UP_DELAY } from "../data/constants";
 import { setOpenPage } from "../redux/store/slices/animationSlice";
 import { useAppDispatch, useAppSelector } from "../redux/store/store";
 
@@ -19,32 +21,32 @@ const ScoreCreator = () => {
     setTimeout(() => {
       setAppStart(true);
       dispatch(setOpenPage(true));
-    }, 2500);
+    }, START_UP_DELAY);
   }, []);
 
   useEffect(() => {
     if (animOpenPage) {
       setTimeout(() => {
         dispatch(setOpenPage(false));
-      }, 1000);
+      }, CHANGE_PAGE_DELAY);
     }
   }, [animOpenPage]);
 
   return (
     <>
       <Head>
-        <title>Home App</title>
+        <title>Score Creator</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap"
+          href={`https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap`}
           rel="stylesheet"
         />
       </Head>
       <StyledBackground data-cy="background-gradient">
         <StyledMain data-cy="main">
           {!appStart ? (
-            <></>
+            <MusicWaveAnim />
           ) : currSlide === "begin" ? (
             <StyledContentWrapper
               data-cy="content-wrapper"
@@ -125,14 +127,14 @@ const StyledMain = styled.div`
   color: white;
   background-color: #ffffff40;
   border-radius: 20px;
-  width: 5%;
-  height: 15%;
+  width: 5vw;
+  height: 5vw;
   align-self: center;
 
   box-shadow: 10px 10px 20px 20px #ff717121, 10px 10px 14px 5px #ff7b7b59,
     0 0 0 #ffffff63 inset, 0 0 0 #ffffff6b inset;
 
-  animation: open 3s cubic-bezier(0.16, 1, 0.3, 1) 1s;
+  animation: open 4s cubic-bezier(0.16, 1, 0.3, 1) 1s;
   -webkit-animation-fill-mode: forwards; /* Chrome 16+, Safari 4+ */
   -moz-animation-fill-mode: forwards; /* FF 5+ */
   -o-animation-fill-mode: forwards; /* Not implemented yet */
@@ -141,23 +143,23 @@ const StyledMain = styled.div`
 
   @keyframes open {
     0% {
-      width: 5%;
-      height: 15%;
+      width: 5vw;
+      height: 5vw;
     }
 
-    25% {
-      width: 5%;
-      height: 15%;
+    35% {
+      width: 5vw;
+      height: 5vw;
     }
 
     50% {
-      width: 5%;
-      height: 90%;
+      width: 5vw;
+      height: 90vh;
     }
 
     100% {
-      width: 70%;
-      height: 90%;
+      width: 70vw;
+      height: 90vh;
     }
   }
 `;
