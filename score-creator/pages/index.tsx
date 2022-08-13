@@ -7,6 +7,7 @@ import SelectSong from "../components/selectSong";
 import { CHANGE_PAGE_DELAY, START_UP_DELAY } from "../data/constants";
 import { setOpenPage } from "../redux/store/slices/animationSlice";
 import { useAppDispatch, useAppSelector } from "../redux/store/store";
+import Playground from "../components/playground";
 
 const ScoreCreator = () => {
   const dispatch = useAppDispatch();
@@ -57,7 +58,7 @@ const ScoreCreator = () => {
               <h1>SCORE CREATOR</h1>
               <Begin />
             </StyledContentWrapper>
-          ) : (
+          ) : currSlide === "selectSong" ? (
             <StyledContentWrapper
               className={
                 animOpenPage ? "fadeIn" : animClosePage ? "fadeOut" : ""
@@ -67,6 +68,18 @@ const ScoreCreator = () => {
               <h1>SELECT A SONG</h1>
               <SelectSong />
             </StyledContentWrapper>
+          ) : currSlide === "playground" ? (
+            <StyledContentWrapper
+              className={
+                animOpenPage ? "fadeIn" : animClosePage ? "fadeOut" : ""
+              }
+              data-cy="content-wrapper"
+            >
+              <h1>CREATE A SCORE</h1>
+              <Playground />
+            </StyledContentWrapper>
+          ) : (
+            <></>
           )}
         </StyledMain>
       </StyledBackground>

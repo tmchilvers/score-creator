@@ -8,10 +8,16 @@ const MusicButton = ({
   text,
   clickFunc,
   slide,
+  dispatch,
+  animOpenPage,
+  animClosePage,
 }: {
   text: string;
   clickFunc: any;
   slide?: string;
+  dispatch: any;
+  animOpenPage: boolean;
+  animClosePage: boolean;
 }) => {
   const [showAnim, setShowAnim] = useState(false);
   const [disabled, setDisabled] = useState(true);
@@ -34,7 +40,7 @@ const MusicButton = ({
         <StyledButton
           disabled={disabled}
           onClick={() => {
-            clickFunc(slide);
+            clickFunc(dispatch, animOpenPage, animClosePage, slide);
             setShowAnim(true);
           }}
         >

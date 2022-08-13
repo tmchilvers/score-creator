@@ -11,7 +11,7 @@ export interface IProject {
 
 //  =====================================================================================
 //  SONG INTERFACES
-type Instruments =
+export type Instruments =
   | "piano"
   | "guitar"
   | "drums"
@@ -30,6 +30,7 @@ export interface ISong {
   bpm: number;
   instruments: Instruments[] | null;
   stems: IStem[] | null;
+  IPFS_CID: string;
 }
 
 export interface IStem {

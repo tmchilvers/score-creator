@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { CHANGE_PAGE_DELAY, START_PAGE_CHANGE_DELAY } from "../data/constants";
+import { changeSlide } from "../data/utils";
 import { Slides } from "../redux/store/interfaces";
 import {
   setClosePage,
@@ -12,22 +13,9 @@ import FadeWord from "./animations/fadeWord";
 import MusicButton from "./animations/musicButton";
 
 const Begin = () => {
+  const dispatch = useAppDispatch();
   const animOpenPage = useAppSelector((state) => state.animation.openPage);
   const animClosePage = useAppSelector((state) => state.animation.closePage);
-  const dispatch = useAppDispatch();
-
-  const changeSlide = (slide: Slides) => {
-    if (animOpenPage || animClosePage) return;
-    setTimeout(() => {
-      dispatch(setClosePage(true));
-
-      setTimeout(() => {
-        dispatch(setClosePage(false));
-        dispatch(setOpenPage(true));
-        dispatch(setSlide(slide));
-      }, CHANGE_PAGE_DELAY);
-    }, START_PAGE_CHANGE_DELAY);
-  };
 
   return (
     <StyledBegin data-cy="begin">
@@ -42,6 +30,9 @@ const Begin = () => {
         <MusicButton
           text={"Pick a Song"}
           clickFunc={changeSlide}
+          dispatch={dispatch}
+          animOpenPage={animOpenPage}
+          animClosePage={animClosePage}
           slide="selectSong"
         />
       </StyledBeginWrapper>
