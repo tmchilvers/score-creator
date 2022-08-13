@@ -1,0 +1,74 @@
+{
+	"folders": {},
+	"connections": {
+		"postgres-jdbc-18295226913-7785722cc8b40230": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "postgres",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "5432",
+				"database": "postgres",
+				"url": "jdbc:postgresql://localhost:5432/postgres",
+				"home": "postgresql_client",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"read-keys-with-columns": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"virtual-models": {
+		"postgres-jdbc-18295226913-7785722cc8b40230": {
+			"postgres": {
+				"score-creator": {
+					"@properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"empty\" time=\"202208122329\"><entities><data-source id=\"postgres-jdbc-18295226913-7785722cc8b40230\"><entity id=\"1\" name=\"song\" fq-name=\"&quot;score-creator&quot;.song\" order=\"0\" x=\"46\" y=\"40\"><path name=\"score-creator\"/><path name=\"postgres\"/></entity><entity id=\"2\" name=\"stem\" fq-name=\"&quot;score-creator&quot;.stem\" order=\"1\" x=\"180\" y=\"43\"><path name=\"score-creator\"/><path name=\"postgres\"/></entity><entity id=\"3\" name=\"section\" fq-name=\"&quot;score-creator&quot;.&quot;section&quot;\" order=\"2\" border-width=\"3\" x=\"322\" y=\"43\"><path name=\"score-creator\"/><path name=\"postgres\"/></entity></data-source></entities><relations/></diagram>"
+						}
+					},
+					":song": {
+						"properties": {
+							"erd.diagram.state": {
+								"serialized": "<diagram version=\"1\" name=\"empty\" time=\"202208122310\"><entities><data-source id=\"postgres-jdbc-18295226913-7785722cc8b40230\"><entity id=\"1\" name=\"song\" fq-name=\"&quot;score-creator&quot;.song\" order=\"0\" color-bg=\"128,64,32\" border-width=\"3\" x=\"153\" y=\"94\"><path name=\"score-creator\"/><path name=\"postgres\"/></entity></data-source></entities><relations/></diagram>"
+							}
+						},
+						"constraints": {}
+					}
+				}
+			},
+			"db-score-creator": {
+				"scoreCreator": {
+					"@properties": {
+						"erd.diagram.state": {
+							"serialized": "<diagram version=\"1\" name=\"empty\" time=\"202208131238\"><entities><data-source id=\"postgres-jdbc-18295226913-7785722cc8b40230\"><entity id=\"1\" name=\"song\" fq-name=\"&quot;scoreCreator&quot;.song\" order=\"0\" x=\"336\" y=\"20\"><path name=\"scoreCreator\"/><path name=\"db-score-creator\"/></entity><entity id=\"2\" name=\"stem\" fq-name=\"&quot;scoreCreator&quot;.stem\" order=\"1\" x=\"483\" y=\"20\"><path name=\"scoreCreator\"/><path name=\"db-score-creator\"/></entity><entity id=\"3\" name=\"section\" fq-name=\"&quot;scoreCreator&quot;.&quot;section&quot;\" order=\"2\" x=\"629\" y=\"21\"><path name=\"scoreCreator\"/><path name=\"db-score-creator\"/></entity></data-source></entities><relations/></diagram>"
+						}
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

@@ -25,7 +25,7 @@ for i in songIds:
     stems = []
     stemIds = []
 
-    mycursor.execute(f"SELECT JSON_OBJECT('songId', songId, 'songName', songName, 'bpm', bpm, 'instruments', instruments) AS 'Songs' FROM songs WHERE songId={i};")
+    mycursor.execute(f"SELECT JSON_OBJECT('songId', songId, 'songName', songName, 'bpm', bpm, 'instruments', instruments, 'IPFS_CID', IPFS_CID) AS 'Songs' FROM songs WHERE songId={i};")
     currSong = mycursor.fetchone()[0]
     currSong = json.loads(currSong)
 
